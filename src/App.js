@@ -13,11 +13,21 @@ function App() {
   useEffect(() => {
     setLoading(true);
     setError(false);
-    fetch(`${process.env.REACT_APP_API_URL}&q=${query}`)
+
+    fetch(
+      `https://api.pexels.com/v1/search?query=${query}&per_page=20&page=1`,
+      {
+        method: "get",
+        headers: new Headers({
+          Authorization: process.env.REACT_APP_API_KEY,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setLoading(false);
+        console.log(data);
       })
       .catch(() => {
         setError(true);
@@ -51,12 +61,12 @@ function App() {
       <section className="container mt-5">
         <h2>Explore</h2>
 
-        {!loading && data.hits ? (
-          data.hits.length ? (
+        {!loading && data.photos ? (
+          data.photos.length ? (
             <div className="d-flex flex-wrap gap-3 mt-5">
-              {data.hits &&
-                data.hits.map((item) => (
-                  <ImageCard url={item.webformatURL} key={item.id} />
+              {data.photos &&
+                data.photos.map((item) => (
+                  <ImageCard url={item.src.portrait} key={item.id} />
                 ))}
             </div>
           ) : (

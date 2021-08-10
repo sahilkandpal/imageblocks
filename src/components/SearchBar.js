@@ -2,11 +2,14 @@ import React, { useState, useContext } from "react";
 import { queryContext } from "../context/queryContext";
 const SearchBar = () => {
   const [value, setValue] = useState("");
+
   const { setQuery } = useContext(queryContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setQuery(value);
+    if (value.trim() !== "") {
+      setQuery(value);
+    }
   };
   return (
     <form className="w-100" onSubmit={onSubmit}>

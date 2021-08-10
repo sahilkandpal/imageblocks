@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  padding: 12px 22px 12px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header a {
+  color: #272727;
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header a:hover {
+  color: #272727;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: cursive;
+}
+header div a {
+  margin-left: 30px;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 40, 0, 0.4), rgba(0, 40, 0, 0.4)),
+    url(https://cdn.pixabay.com/photo/2021/04/02/01/25/plant-6143589_1280.jpg);
+  height: 550px;
+}
+
+.hero .hero-text {
+  width: 60%;
+}
+
+.searchbar {
+  background-color: #fff;
+  width: 60%;
+  border-radius: 4px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.searchbar input {
+  border: none;
+  padding: 18px 0 18px;
+  background: none;
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.searchbar input:focus {
+  outline: none;
+}
+
+.searchbar input::placeholder {
+  color: rgb(184, 184, 184);
+  font-size: 17px;
+}
+
+.searchbar button {
+  border: none;
+  background: none;
+
+  color: grey;
+  font-size: 22px;
+  padding: 0 10px;
+}
+
+.imagecard {
+  flex: 1 1 300px;
+}
+
+.imagecard img {
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .searchbar {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+
+  header .logo {
+    font-weight: 600;
   }
 }
